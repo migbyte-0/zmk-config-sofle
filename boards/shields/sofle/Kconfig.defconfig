@@ -15,10 +15,4 @@ config ZMK_BLE
 config ZMK_USB
     default y
 
-config ZMK_DISPLAY
-    default y
-
-config ZMK_BATTERY_REPORTING
-    default y
-
 endif
