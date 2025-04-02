@@ -15,17 +15,14 @@ config ZMK_BLE
 config ZMK_USB
     default y
 
-# Display
 config ZMK_DISPLAY
     default y
 
-# Battery reporting
 config ZMK_BATTERY_REPORTING
     default y
 
-# RGB - Disabled by default for battery life
-config RGBLED
-    default n
+# Remove the RGBLED line completely - we'll control RGB through sofle.conf instead
+# config RGBLED
+#    default n
 
 endif
-# SPDX-License-Identifier: MIT
