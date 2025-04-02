@@ -21,8 +21,4 @@ config ZMK_DISPLAY
 config ZMK_BATTERY_REPORTING
     default y
 
-# Remove the RGBLED line completely - we'll control RGB through sofle.conf instead
-# config RGBLED
-#    default n
-
 endif
