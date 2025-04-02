@@ -5,39 +5,37 @@
     keymap {
         compatible = "zmk,keymap";
 
-        /* 
-         * Single base layer "layer_0" with 30 keys in a 6×5 arrangement.
-         * Here, we just fill them with placeholders A, B, C, etc.
+        /* --- Layer 0 (Base) ---
+         * 6 rows × 5 columns = 30 total.
          */
         layer_0 {
             bindings = <
-                &kp Q  &kp W  &kp E  &kp R  &kp T
-                &kp Y  &kp U  &kp I  &kp O  &kp P
-                &kp A  &kp S  &kp D  &kp F  &kp G
-                &kp H  &kp J  &kp K  &kp L  &kp SEMI
-                &kp Z  &kp X  &kp C  &kp V  &kp B
-                &kp N  &kp M  &kp SLSH &kp DOT &kp ESC
+                &kp Q      &kp W      &kp E      &kp R      &kp T
+                &kp Y      &kp U      &kp I      &kp O      &kp P
+                &kp A      &kp S      &kp D      &kp F      &kp G
+                &kp H      &kp J      &kp K      &kp L      &kp SEMI
+                &kp Z      &kp X      &kp C      &kp V      &kp B
+                &kp N      &kp M      &kp SLSH   &kp DOT    &kp ESC
             >;
         };
 
-        /*
-         * Example "layer_1" for controlling RGB. We only use 6 positions here for demonstration,
-         * but you must fill 30 if you want to exactly match your transform. Unused can be &none.
+        /* --- Layer 1 (RGB Control) ---
+         * For demonstration, we show some RGB controls plus &none for the rest of the 30 keys.
          */
         layer_1 {
             bindings = <
-                &rgb_ug RGB_TOG   &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI
-                &trans            &none            &none            &none            &none
-                &none             &none            &none            &none            &none
-                &none             &none            &none            &none            &none
-                &none             &none            &none            &none            &none
-                &none             &none            &none            &none            &none
+                &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI
+                &none            &none            &none            &none           &none
+                &none            &none            &none            &none           &none
+                &none            &none            &none            &none           &none
+                &none            &none            &none            &none           &none
+                &none            &none            &none            &none           &none
             >;
         };
 
         /* 
-         * If your rotary encoder is declared as 'encoder0' in the overlay, 
-         * you can define its CW and CCW actions here. 
+         * If your overlay named the rotary encoder node "encoder0",
+         * you can define its CW/CCW actions here:
          */
         encoder0 {
             compatible = "zmk,behavior-rotary-encoder";

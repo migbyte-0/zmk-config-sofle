@@ -1,25 +1,24 @@
-
 / {
     chosen {
         zmk,keyboard = &kscan0;
     };
 
-    /* This half is "peripheral." */
     zephyr,user {
+        /* Mark this half as peripheral. */
         zmk,split-role = "peripheral";
     };
 
     kscan0: kscan0 {
         compatible = "zmk,kscan-matrix-transform";
         label = "Sofle Right Matrix";
-        /* Example row pins */
-        row-gpios = < &gpio0 3  (GPIO_ACTIVE_LOW) >,
-                    < &gpio0 4  (GPIO_ACTIVE_LOW) >,
-                    < &gpio0 5  (GPIO_ACTIVE_LOW) >,
-                    < &gpio0 6  (GPIO_ACTIVE_LOW) >,
-                    < &gpio0 7  (GPIO_ACTIVE_LOW) >,
-                    < &gpio0 8  (GPIO_ACTIVE_LOW) >;
-        /* Example col pins */
+
+        row-gpios = < &gpio0 3 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 4 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 5 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 6 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 7 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 8 (GPIO_ACTIVE_LOW) >;
+
         col-gpios = < &gpio0 9  (GPIO_ACTIVE_LOW) >,
                     < &gpio0 10 (GPIO_ACTIVE_LOW) >,
                     < &gpio0 11 (GPIO_ACTIVE_LOW) >,
@@ -31,7 +30,6 @@
         #address-cells = <1>;
         #size-cells = <0>;
 
-        /* Must match the same shape as the left half: 6×5 = 30. */
         zmk,matrix-transform = <
             0   1   2   3   4
             5   6   7   8   9
@@ -61,7 +59,6 @@
         status = "okay";
     };
 
-    /* If you have a separate encoder on the right side, define it similarly. */
     encoder0: encoder0 {
         compatible = "zmk,behavior-rotary-encoder";
         label = "ENCODER_RIGHT";

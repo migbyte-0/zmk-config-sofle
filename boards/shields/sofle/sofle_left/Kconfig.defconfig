@@ -1,39 +1,32 @@
-
 # SPDX-License-Identifier: MIT
 
 if SHIELD_SOFLE_LEFT
 
-# Just give it a name that shows up in ZMK logs, BLE, etc.
 config ZMK_KEYBOARD_NAME
     string
     default "Sofle Left"
 
-# Mark it as a split keyboard
 config ZMK_SPLIT
     bool
     default y
 
-# Let this half be the "central" half that connects via USB/BLE
 config ZMK_SPLIT_ROLE_CENTRAL
     bool
     default y
 
-# Enable BLE
 config ZMK_BLE
     bool
     default y
 
-# If you want the display
+# If you have a display on this half
 config ZMK_DISPLAY
     bool
     default y
 
-# If you have a nice!view OLED
 config ZMK_NICE_VIEW_DISPLAY
     bool
     default y
 
-# Enable RGB if you want underglow
 config ZMK_RGB_UNDERGLOW
     bool
     default y
@@ -54,7 +47,6 @@ config ZMK_RGB_UNDERGLOW_EFFECT_RANGE
     bool
     default y
 
-# Rotary encoder, if needed
 config ZMK_BEHAVIOR_ROTARY_ENCODER
     bool
     default y
