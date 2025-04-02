@@ -7,19 +7,31 @@
 
         default_layer {
             bindings = <
-                &kp Q    &kp W    &kp E    &kp R    &kp T         &kp Y    &kp U    &kp I    &kp O    &kp P
-                &kp A    &kp S    &kp D    &kp F    &kp G         &kp H    &kp J    &kp K    &kp L    &kp SEMI
-                &kp Z    &kp X    &kp C    &kp V    &kp B         &kp N    &kp M    &kp COMMA &kp DOT &kp SLSH
-                &mo 1    &kp LCTL &kp LALT &kp LSHFT &kp SPACE    &kp SPACE &kp RET  &kp BSPC &kp DEL &mo 1
+                // Left half (6 columns)
+                &kp Q &kp W &kp E &kp R &kp T &kp GRAVE
+                &kp A &kp S &kp D &kp F &kp G &kp ESC
+                &kp Z &kp X &kp C &kp V &kp B &kp TAB
+                &mo 1 &kp LCTRL &kp LALT &kp LSHIFT &kp SPACE &kp BSPC
+
+                // Right half (6 columns)
+                &kp Y &kp U &kp I &kp O &kp P &kp MINUS
+                &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+                &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp BSLH
+                &kp SPACE &kp ENTER &kp DEL &kp RSHIFT &kp RCTRL &mo 1
             >;
         };
 
         lower_layer {
             bindings = <
-                &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT    &kp CIRC &kp AMPS &kp ASTR &kp LPRN &kp RPRN
-                &kp ESC  &kp LEFT &kp DOWN &kp UP   &kp RIGHT    &kp HOME &kp PGDN &kp PGUP &kp END  &kp QUOT
-                &kp GRAVE &kp F1  &kp F2  &kp F3   &kp F4       &kp F5   &kp F6   &kp F7   &kp F8   &kp PIPE
-                &trans  &trans   &trans   &trans   &trans       &trans   &trans   &trans   &trans   &trans
+                &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp TILDE
+                &kp HOME &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp END
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6
+                &trans &trans &trans &trans &trans &trans
+
+                &kp CIRC &kp AMPS &kp ASTR &kp LPRN &kp RPRN &kp UNDER
+                &kp PGDN &kp PGUP &kp PLUS &kp LBRC &kp RBRC &kp PIPE
+                &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+                &trans &trans &trans &trans &trans &trans
             >;
         };
     };
