@@ -1,60 +1,47 @@
-// SPDX-License-Identifier: MIT
-
 / {
-    /* 
-     * Bring in the standard ZMK keycode definitions and the 
-     * dt-bindings for the RGB action macros (RGB_TOG, etc.).
-     */
     #include <dt-bindings/zmk/keys.h>
     #include <dt-bindings/zmk/rgb.h>
-    
-    /* If you want custom hold-tap or combos, also #include <behaviors.dtsi> or relevant. */
 
     keymap {
         compatible = "zmk,keymap";
 
         /* 
-         * A single-layer example for demonstration. 
-         * Usually Sofle has multiple layers. 
-         * Each binding references something like &kp A, &kp B, etc. 
+         * Single base layer "layer_0" with 30 keys in a 6×5 arrangement.
+         * Here, we just fill them with placeholders A, B, C, etc.
          */
-        binding = <
-            &kp Q    &kp W    &kp E    &kp R    &kp T
-            &kp A    &kp S    &kp D    &kp F    &kp G
-            &kp Z    &kp X    &kp C    &kp V    &kp B
-            &kp ESC  &kp SPC  &kp TAB  &kp ENT  &kp BSPC
-            &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI
-            /* And so on for however many matrix positions you have… */
-        >;
-    };
+        layer_0 {
+            bindings = <
+                &kp Q  &kp W  &kp E  &kp R  &kp T
+                &kp Y  &kp U  &kp I  &kp O  &kp P
+                &kp A  &kp S  &kp D  &kp F  &kp G
+                &kp H  &kp J  &kp K  &kp L  &kp SEMI
+                &kp Z  &kp X  &kp C  &kp V  &kp B
+                &kp N  &kp M  &kp SLSH &kp DOT &kp ESC
+            >;
+        };
 
-    /* 
-     * Example usage of the rotary encoder. 
-     * The "bindings" property tells ZMK what to do on clockwise vs. counterclockwise rotation. 
-     */
-    encoder0 {
-        compatible = "zmk,behavior-rotary-encoder";
-        bindings = < &inc_dec_kp &kp VOL_UP &kp VOL_DOWN >;
         /*
-         * Or you can do something like layer switching, page scrolling, etc. 
-         * e.g.  < &inc_dec_kp &kp PG_DN &kp PG_UP >
+         * Example "layer_1" for controlling RGB. We only use 6 positions here for demonstration,
+         * but you must fill 30 if you want to exactly match your transform. Unused can be &none.
          */
-    };
+        layer_1 {
+            bindings = <
+                &rgb_ug RGB_TOG   &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI
+                &trans            &none            &none            &none            &none
+                &none             &none            &none            &none            &none
+                &none             &none            &none            &none            &none
+                &none             &none            &none            &none            &none
+                &none             &none            &none            &none            &none
+            >;
+        };
 
-    /*
-     * If your joystick is wired as 5 separate buttons using "zmk,behavior-buttons", 
-     * you can define how each button is mapped. 
-     * For example: 
-     */
-    joystick0 {
-        compatible = "zmk,behavior-buttons";
-        bindings = <
-            &kp UP
-            &kp DOWN
-            &kp LEFT
-            &kp RIGHT
-            &kp ENTER
-        >;
+        /* 
+         * If your rotary encoder is declared as 'encoder0' in the overlay, 
+         * you can define its CW and CCW actions here. 
+         */
+        encoder0 {
+            compatible = "zmk,behavior-rotary-encoder";
+            bindings = < &inc_dec_kp &kp VOL_UP &kp VOL_DOWN >;
+        };
     };
 };
-

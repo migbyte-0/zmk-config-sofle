@@ -1,0 +1,71 @@
+
+/ {
+    chosen {
+        zmk,keyboard = &kscan0;
+    };
+
+    /* This half is "peripheral." */
+    zephyr,user {
+        zmk,split-role = "peripheral";
+    };
+
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-matrix-transform";
+        label = "Sofle Right Matrix";
+        /* Example row pins */
+        row-gpios = < &gpio0 3  (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 4  (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 5  (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 6  (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 7  (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 8  (GPIO_ACTIVE_LOW) >;
+        /* Example col pins */
+        col-gpios = < &gpio0 9  (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 10 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 11 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 12 (GPIO_ACTIVE_LOW) >,
+                    < &gpio0 13 (GPIO_ACTIVE_LOW) >;
+
+        diode-direction = "COL2ROW";
+
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        /* Must match the same shape as the left half: 6×5 = 30. */
+        zmk,matrix-transform = <
+            0   1   2   3   4
+            5   6   7   8   9
+            10  11  12  13  14
+            15  16  17  18  19
+            20  21  22  23  24
+            25  26  27  28  29
+        >;
+    };
+
+    &i2c1 {
+        status = "okay";
+        nice_view: nice_view@3c {
+            compatible = "nicekeyboards,nice-view";
+            reg = <0x3C>;
+            label = "NICE_VIEW_RIGHT";
+            orientation-flip = "both";
+        };
+    };
+
+    ws2812_u: ws2812_u {
+        compatible = "worldsemi,ws2812";
+        label = "WS2812_UNDERGLOW";
+        chain-length = <30>;
+        gpios = < &gpio0 16 GPIO_OUTPUT >;
+        color-order = "GRB";
+        status = "okay";
+    };
+
+    /* If you have a separate encoder on the right side, define it similarly. */
+    encoder0: encoder0 {
+        compatible = "zmk,behavior-rotary-encoder";
+        label = "ENCODER_RIGHT";
+        gpios = < &gpio0 17 (GPIO_ACTIVE_HIGH) >,
+                < &gpio0 18 (GPIO_ACTIVE_HIGH) >;
+    };
+};
