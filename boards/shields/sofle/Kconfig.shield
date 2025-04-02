@@ -1,5 +1,13 @@
-config SHIELD_SOFLE_LEFT
-    def_bool $(shields_list_contains,sofle_left)
+# SPDX-License-Identifier: MIT
 
-config SHIELD_SOFLE_RIGHT
-    def_bool $(shields_list_contains,sofle_right)
+menu "Sofle Shield"
+
+config SHIELD_SOFLE
+    bool "Sofle Wireless Shield"
+    depends on BOARD_NICE_NANO_V2
+    select ZMK_KEYBOARD_CUSTOM
+    help
+      Enable support for the Sofle split keyboard (with nice!nano v2).
+
+endmenu
+

@@ -1,18 +1,60 @@
-if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
+# SPDX-License-Identifier: MIT
 
+if SHIELD_SOFLE
+
+# Name your keyboard so it appears in device info, etc.
 config ZMK_KEYBOARD_NAME
-    default "Sofle"
+    string
+    default "Sofle Wireless"
 
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
+# Enable split support
 config ZMK_SPLIT
+    bool
     default y
 
+# Enable BLE
 config ZMK_BLE
+    bool
     default y
 
-config ZMK_USB
+# Enable display for nice!view
+config ZMK_DISPLAY
+    bool
     default y
 
-endif
+config ZMK_NICE_VIEW_DISPLAY
+    bool
+    default y
+
+# Enable Rotary Encoder behavior
+config ZMK_BEHAVIOR_ROTARY_ENCODER
+    bool
+    default y
+
+# Enable RGB Underglow
+config ZMK_RGB_UNDERGLOW
+    bool
+    default y
+
+# If you have WS2812 or similar single-wire LED strips:
+config ZMK_RGB_UNDERGLOW_WS2812
+    bool
+    default y
+
+# Example LED count
+config ZMK_RGB_UNDERGLOW_COUNT
+    int
+    default 30
+
+# Enable speed effects, effect range, etc.
+config ZMK_RGB_UNDERGLOW_SPEED
+    bool
+    default y
+
+config ZMK_RGB_UNDERGLOW_EFFECT_RANGE
+    bool
+    default y
+
+endif # SHIELD_SOFLE
+
+
