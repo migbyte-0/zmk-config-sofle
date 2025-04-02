@@ -1,54 +1,38 @@
 # SPDX-License-Identifier: MIT
 
+# This sets default config for the left half (central) side.
+
 if SHIELD_SOFLE_LEFT
 
 config ZMK_KEYBOARD_NAME
-    string
-    default "Sofle Left"
+    default "Sofle"
 
+# Mark it as a split keyboard (central half).
 config ZMK_SPLIT
-    bool
     default y
-
 config ZMK_SPLIT_ROLE_CENTRAL
-    bool
     default y
 
+# BLE + USB dual mode
 config ZMK_BLE
-    bool
+    default y
+config ZMK_USB
     default y
 
-# If you have a display on this half
+# Increase BLE transmit power
+config BT_CTLR_TX_PWR_PLUS_8
+    default y
+
+# Battery info from the central side
+config ZMK_BATTERY_REPORTING
+    default y
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+# Display
 config ZMK_DISPLAY
-    bool
     default y
 
-config ZMK_NICE_VIEW_DISPLAY
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW_WS2812
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW_COUNT
-    int
-    default 30
-
-config ZMK_RGB_UNDERGLOW_SPEED
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW_EFFECT_RANGE
-    bool
-    default y
-
-config ZMK_BEHAVIOR_ROTARY_ENCODER
-    bool
-    default y
-
-endif # SHIELD_SOFLE_LEFT
+endif

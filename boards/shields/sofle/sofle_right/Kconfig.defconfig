@@ -1,54 +1,33 @@
 # SPDX-License-Identifier: MIT
 
+# This sets defaults for the right half (peripheral) side.
+
 if SHIELD_SOFLE_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    string
-    default "Sofle Right"
+    default "Sofle"
 
 config ZMK_SPLIT
-    bool
     default y
-
 config ZMK_SPLIT_ROLE_PERIPHERAL
-    bool
     default y
 
 config ZMK_BLE
-    bool
+    default y
+config ZMK_USB
     default y
 
+# Increase BLE transmit power on the peripheral side too.
+config BT_CTLR_TX_PWR_PLUS_8
+    default y
+
+# Peripheral side typically doesn't do battery fetching or proxy,
+# but we can still enable battery reporting if the hardware is the same.
+config ZMK_BATTERY_REPORTING
+    default y
+
+# If you have an OLED or other display on the right side, enable:
 config ZMK_DISPLAY
-    bool
     default y
 
-config ZMK_NICE_VIEW_DISPLAY
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW_WS2812
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW_COUNT
-    int
-    default 30
-
-config ZMK_RGB_UNDERGLOW_SPEED
-    bool
-    default y
-
-config ZMK_RGB_UNDERGLOW_EFFECT_RANGE
-    bool
-    default y
-
-config ZMK_BEHAVIOR_ROTARY_ENCODER
-    bool
-    default y
-
-endif # SHIELD_SOFLE_RIGHT
-
+endif

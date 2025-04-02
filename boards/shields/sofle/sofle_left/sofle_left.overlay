@@ -1,14 +1,13 @@
-/ {
+ {
     chosen {
         zmk,keyboard = &kscan0;
     };
 
     zephyr,user {
-        /* Mark this half as central. */
         zmk,split-role = "central";
     };
 
-    /* Example: 6×5 matrix. Update pin numbers to match your PCB. */
+    /* Example 6×5 matrix. Adjust pins to match your actual PCB. */
     kscan0: kscan0 {
         compatible = "zmk,kscan-matrix-transform";
         label = "Sofle Left Matrix";
@@ -31,6 +30,7 @@
         #address-cells = <1>;
         #size-cells = <0>;
 
+        /* 6 rows × 5 columns = 30 positions. */
         zmk,matrix-transform = <
             0   1   2   3   4
             5   6   7   8   9
@@ -41,29 +41,13 @@
         >;
     };
 
+    /* If you have an OLED or nice!view display, enable i2c1. */
     &i2c1 {
         status = "okay";
         nice_view: nice_view@3c {
             compatible = "nicekeyboards,nice-view";
             reg = <0x3C>;
             label = "NICE_VIEW_LEFT";
-            orientation-flip = "both";
         };
-    };
-
-    ws2812_u: ws2812_u {
-        compatible = "worldsemi,ws2812";
-        label = "WS2812_UNDERGLOW";
-        chain-length = <30>;
-        gpios = < &gpio0 16 GPIO_OUTPUT >;
-        color-order = "GRB";
-        status = "okay";
-    };
-
-    encoder0: encoder0 {
-        compatible = "zmk,behavior-rotary-encoder";
-        label = "ENCODER_LEFT";
-        gpios = < &gpio0 17 (GPIO_ACTIVE_HIGH) >,
-                < &gpio0 18 (GPIO_ACTIVE_HIGH) >;
     };
 };

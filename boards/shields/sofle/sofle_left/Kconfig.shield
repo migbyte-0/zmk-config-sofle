@@ -7,6 +7,6 @@ config SHIELD_SOFLE_LEFT
     depends on BOARD_NICE_NANO_V2
     select ZMK_KEYBOARD_CUSTOM
     help
-      Enable support for the left (central) half of a Sofle split on nice!nano v2.
+      Enable support for the left (central) half of Sofle.
 
 endmenu
