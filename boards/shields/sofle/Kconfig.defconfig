@@ -1,14 +1,12 @@
-# SPDX-License-Identifier: MIT
-
 if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
 
 config ZMK_KEYBOARD_NAME
     default "Sofle"
 
-config ZMK_SPLIT
+config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-config ZMK_SPLIT_BLE
+config ZMK_SPLIT
     default y
 
 config ZMK_BLE
@@ -17,26 +15,17 @@ config ZMK_BLE
 config ZMK_USB
     default y
 
-# OLED Display Configuration
-config DISPLAY
-    default y
-
-config SSD1306
-    default y
-
-config I2C
-    default y
-
-# Increase BLE signal strength
-config BT_CTLR_TX_PWR_PLUS_8
+# Display
+config ZMK_DISPLAY
     default y
 
 # Battery reporting
 config ZMK_BATTERY_REPORTING
     default y
 
-# RGB Underglow (disable for better battery life)
+# RGB - Disabled by default for battery life
 config RGBLED
-    # default n
+    default n
 
 endif
+# SPDX-License-Identifier: MIT
