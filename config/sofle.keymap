@@ -1,11 +1,11 @@
-/ {
-    #include <dt-bindings/zmk/keys.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
 
+/ {
     keymap {
         compatible = "zmk,keymap";
 
-        /* Single base layer (layer_0) with 30 positions. */
-        layer_0 {
+        default_layer {
             bindings = <
                 &kp Q    &kp W    &kp E    &kp R    &kp T
                 &kp Y    &kp U    &kp I    &kp O    &kp P

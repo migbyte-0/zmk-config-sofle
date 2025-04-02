@@ -1,0 +1,27 @@
+if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Sofle"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y if SHIELD_SOFLE_LEFT
+
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    default y if SHIELD_SOFLE_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
+    default y
+
+config ZMK_USB
+    default y
+
+config BT_CTLR_TX_PWR_PLUS_8
+    default y
+
+config ZMK_DISPLAY
+    default y
+
+endif
