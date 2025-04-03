@@ -35,7 +35,7 @@ config BT_CTLR_TX_PWR_PLUS_8
 config ZMK_BATTERY_REPORTING
     default y
 
-# RGB Underglow (disable for better battery life)
+# If you want to keep Underglow optional, comment this out or enable as needed.
 config RGBLED
     # default n
 
